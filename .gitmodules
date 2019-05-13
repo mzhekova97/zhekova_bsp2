@@ -1,0 +1,4 @@
+[submodule "stack/raspicam_node"]
+	path = stack/raspicam_node
+	url = https://github.com/UbiquityRobotics/raspicam_node
+	branch = kinetic
