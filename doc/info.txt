@@ -1,0 +1,3 @@
+Submodules
+raspicam_node
+https://github.com/UbiquityRobotics/raspicam_node
