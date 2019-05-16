@@ -9,7 +9,7 @@ from std_msgs.msg import String
 def callback(msg):
 	pub = rospy.Publisher('talker', String, queue_size=10)
 	rospy.loginfo(rospy.get_caller_id() + " I heard: "+ str(msg.data))
-	resp=led.traffic(msg.data)
+	resp=led.traffic(msg.data) #TODO
 	pub.publish(resp)
 
 	
