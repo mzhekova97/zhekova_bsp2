@@ -12,7 +12,7 @@ def listener():
 
     rospy.init_node('led_visualisation', anonymous=True)
 
-    rospy.Subscriber('chatter', String, callback)
+    rospy.Subscriber('talker', String, callback)
 	
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
@@ -25,4 +25,4 @@ if __name__ == '__main__':
 	except KeyboardInterrupt:
 		pass
 	print("Measurement stopped by user.")
-	GPIO.cleanup()
+	

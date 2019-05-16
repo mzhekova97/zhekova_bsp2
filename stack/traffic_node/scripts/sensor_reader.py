@@ -15,11 +15,12 @@ def talker():
         rospy.loginfo(dist)
         pub.publish(dist)
         rate.sleep()
+    GPIO.cleanup()
 
 if __name__ == '__main__':
     try:
         talker()
     except rospy.ROSInterruptException:
-		rospy.loginfo("Measurement stopped by user.")
-		GPIO.cleanup()
+	rospy.loginfo("Measurement stopped by user.")
+	GPIO.cleanup()
         

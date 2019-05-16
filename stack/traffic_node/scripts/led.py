@@ -18,7 +18,7 @@ def traffic(dist):
 	GPIO.setup(ledGreen, GPIO.OUT)
 	#RED
 	if(dist<=20.0):
-		mess="STOP!  The distance is ",str(dist), " It is red. "
+		mess="STOP!  The distance is "+str(dist)+ " It is red. "
 		GPIO.output(ledRed,GPIO.LOW)
 		GPIO.output(ledYellow,GPIO.LOW)
 		GPIO.output(ledGreen,GPIO.LOW)
@@ -27,7 +27,7 @@ def traffic(dist):
 		GPIO.cleanup()
 	#YELLOW
 	if(dist>20.0 and dist<=40.0):
-		mess="ATTENTION!  The distance is ",str(dist), " It is yellow. "
+		mess="ATTENTION!  The distance is "+str(dist)+ " It is yellow. "
 		GPIO.output(ledRed,GPIO.LOW)
 		GPIO.output(ledYellow,GPIO.LOW)
 		GPIO.output(ledGreen,GPIO.LOW)
@@ -36,7 +36,7 @@ def traffic(dist):
 		GPIO.cleanup()
 	#GREEN
 	if(dist>40.0):
-		mess="You may proceed!  The distance is ",str(dist), " It is green. "
+		mess="You may proceed!  The distance is "+str(dist)+" It is green. "
 		GPIO.output(ledRed,GPIO.LOW)
 		GPIO.output(ledYellow,GPIO.LOW)
 		GPIO.output(ledGreen,GPIO.LOW)

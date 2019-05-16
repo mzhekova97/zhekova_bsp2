@@ -8,7 +8,6 @@ def SetAngle(angle):
 	pwm = GPIO.PWM(21, 50)
 
 	pwm.start(0)
-	print(angle)
 	
 	duty = angle /18+2
 	GPIO.output(21, True)
