@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import rospy
-import time
 from std_msgs.msg import Int8
 import openDoor
 import closeDoor
@@ -18,7 +17,7 @@ def listener():
 
     rospy.init_node('door_listen', anonymous=True)
 
-    rospy.Subscriber('keypress', Int8, callback)
+    rospy.Subscriber('keypress_door', Int8, callback)
 	
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
@@ -30,4 +29,4 @@ if __name__ == '__main__':
 	#when pressing CTR+C	
 	except KeyboardInterrupt:
 		pass
-	p
+	

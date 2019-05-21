@@ -1,9 +1,8 @@
 #libraries
 import RPi.GPIO as GPIO
 import time
-
+	
 def distance():
-
 	#GPIO Mode --> BCM
 	GPIO.setmode(GPIO.BCM)
 
@@ -21,10 +20,8 @@ def distance():
 	#set Trigger after 0.01ms to LOW
 	time.sleep(0.00001)
 	GPIO.output(GPIO_TRIGGER, False)
-	
 	StartTime = time.time()
 	StopTime = time.time()
-
 	#save StartTime
 	while GPIO.input(GPIO_ECHO)==0:
 		StartTime == time.time()
@@ -41,16 +38,6 @@ def distance():
 
 	return distance
 
-"""if __name__=='__main__':
-	try:
-		while True:
-			dist = distance()
-			print("The distance is %.1f cm" % dist)
-			time.sleep(1)
-	
-	#when pressing CTR+C	
-	except KeyboardInterrupt:
-		print("Measurement stopped by user.")
-		GPIO.cleanup()"""
+
 
 

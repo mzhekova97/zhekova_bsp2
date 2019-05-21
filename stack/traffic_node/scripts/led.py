@@ -1,8 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-#import distance
-
-
 
 def traffic(dist):
 	GPIO.setmode(GPIO.BCM)
@@ -24,7 +21,7 @@ def traffic(dist):
 		GPIO.output(ledGreen,GPIO.LOW)
 		time.sleep(0.0001) 
 		GPIO.output(ledRed,GPIO.HIGH)
-		GPIO.cleanup()
+
 	#YELLOW
 	if(dist>20.0 and dist<=40.0):
 		mess="ATTENTION!  The distance is "+str(dist)+ " It is yellow. "
@@ -33,7 +30,7 @@ def traffic(dist):
 		GPIO.output(ledGreen,GPIO.LOW)
 		time.sleep(0.0001) 
 		GPIO.output(ledYellow,GPIO.HIGH)
-		GPIO.cleanup()
+
 	#GREEN
 	if(dist>40.0):
 		mess="You may proceed!  The distance is "+str(dist)+" It is green. "
@@ -42,7 +39,7 @@ def traffic(dist):
 		GPIO.output(ledGreen,GPIO.LOW)
 		time.sleep(0.0001) 
 		GPIO.output(ledGreen,GPIO.HIGH)
-		GPIO.cleanup()
+
 
 	return mess
 	
