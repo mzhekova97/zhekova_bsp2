@@ -4,14 +4,18 @@ import rospy
 from std_msgs.msg import Int8
 import openDoor
 import closeDoor
-
+import RPi.GPIO as GPIO
 
 def callback(msg):
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setwarnings(False)
+	GPIO.setup(21, GPIO.OUT)
+	pwm = GPIO.PWM(21, 50)
 	rospy.loginfo(rospy.get_caller_id() +" "+ str(msg.data))
 	if(msg.data==0):
-		openDoor.openDoor()
+		openDoor.openDoor(pwm)
 	elif(msg.data==1):
-		closeDoor.closeDoor()
+		closeDoor.closeDoor(pwm)
 		
 def listener():
 
@@ -25,6 +29,7 @@ def listener():
 if __name__ == '__main__':
 	try:
 		listener()
+		GPIO.cleanup()
 		
 	#when pressing CTR+C	
 	except KeyboardInterrupt:

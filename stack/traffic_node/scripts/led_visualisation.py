@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import rospy
-import time
 from std_msgs.msg import String
 
 def callback(msg):
@@ -10,7 +9,6 @@ def callback(msg):
 def listener():
 
     rospy.init_node('led_visualisation', anonymous=True)
-
     rospy.Subscriber('color_of_led', String, callback)
 	
     # spin() simply keeps python from exiting until this node is stopped

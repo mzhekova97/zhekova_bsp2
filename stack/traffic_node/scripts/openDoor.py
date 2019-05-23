@@ -1,6 +1,6 @@
 import servo
 
-def openDoor():
-	servo.SetAngle(90)
+def openDoor(pwm):
+	servo.SetAngle(90,pwm)
 	print("The door is open")
 

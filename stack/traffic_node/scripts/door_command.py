@@ -5,6 +5,7 @@ import distance
 from std_msgs.msg import Int8
 
 def talker():
+	
     pub = rospy.Publisher('keypress_door', Int8, queue_size=10)
     rospy.init_node('door_command', anonymous=True)
     rate = rospy.Rate(10) 

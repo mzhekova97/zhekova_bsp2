@@ -1,5 +1,5 @@
 import servo
 
-def closeDoor():
-	servo.SetAngle(0)
+def closeDoor(pwm):
+	servo.SetAngle(0,pwm)
 	print("The door is closed.")

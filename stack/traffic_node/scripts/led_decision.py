@@ -2,16 +2,24 @@
 
 import rospy
 import led
-import time
 from std_msgs.msg import Float32
 from std_msgs.msg import String
 import RPi.GPIO as GPIO
 
 def callback(msg):
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setwarnings(False)
 
+	ledRed = 17
+	ledYellow = 18
+	ledGreen = 22
+
+	GPIO.setup(ledRed, GPIO.OUT) 
+	GPIO.setup(ledYellow, GPIO.OUT) 
+	GPIO.setup(ledGreen, GPIO.OUT)
 	pub = rospy.Publisher('color_of_led', String, queue_size=10)
 	rospy.loginfo(rospy.get_caller_id() + " I heard: "+ str(msg.data))
-	resp=led.traffic(msg.data) 
+	resp=led.traffic(msg.data,ledRed,ledYellow,ledGreen) 
 	pub.publish(resp)
 
 	
